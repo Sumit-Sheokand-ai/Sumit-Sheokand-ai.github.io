@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sumit Sheokand - Portfolio</title>
   <style>
     body {
@@ -18,12 +18,25 @@
       padding: 40px 20px;
       text-align: center;
     }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { margin: 5px 0 0; font-size: 1.2em; }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+    }
 
-    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
 
-    h2 { color: #2c3e50; margin-bottom: 20px; }
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
 
     .projects {
       display: grid;
@@ -34,20 +47,34 @@
     .project-card {
       background: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-    .project-card h3 { margin-top: 0; }
-    .project-card p { margin: 10px 0; }
+    .project-card h3 {
+      margin-top: 0;
+    }
+    .project-card p {
+      margin: 10px 0;
+    }
     .project-card a {
       text-decoration: none;
-      color: #3498db;
       font-weight: bold;
+      font-size: 0.95em;
+      display: inline-block;
+      margin-right: 10px;
+      padding: 8px 14px;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #3498db;
+      transition: background-color 0.3s ease;
+    }
+    .project-card a:hover {
+      background-color: #217dbb;
     }
 
     footer {
@@ -57,7 +84,10 @@
       padding: 30px 20px;
       margin-top: 40px;
     }
-    footer a { color: #1abc9c; text-decoration: none; }
+    footer a {
+      color: #1abc9c;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -69,29 +99,38 @@
   <div class="container">
     <h2>🚀 Projects</h2>
     <div class="projects">
+      <!-- Expense Tracker -->
       <div class="project-card">
         <h3>💰 Expense Tracker (Java Swing)</h3>
-        <p>A desktop application to manage income and expenses with CSV storage and Swing dialogs.</p>
+        <p>
+          A desktop application to manage income and expenses with CSV storage and Swing dialogs. Demonstrates OOP, file handling, and user-friendly UI.
+        </p>
         <a href="https://github.com/Sumit-Sheokand-ai/Expense-Tracker" target="_blank">View Project →</a>
       </div>
 
-      <!-- Add more project cards below -->
+      <!-- Cybersecurity Practice -->
       <div class="project-card">
         <h3>🔒 Cybersecurity Practice</h3>
-        <p>Sample security tools and practice exercises demonstrating ethical hacking and network security.</p>
-        <a href="https://github.com/Sumit-Sheokand-ai/Cybersecurity-Practice/blob/main/src/CyberSecurity.java" target="_blank">View Project →</a>
+        <p>
+          Java project for password strength checking and SHA-256 hashing. Demonstrates secure coding and basic cybersecurity principles.
+        </p>
+        <a href="cybersecurity/" target="_blank">View Project →</a>
       </div>
 
+      <!-- Data Visualization -->
       <div class="project-card">
-        <h3>📊 Data Visualization (Java)</h3>
-        <p>Charts and graphs from CSV data, showing Java Swing GUI implementation and analytics skills.</p>
-        <a href="#" target="_blank">View Project →</a>
+        <h3>📊 Data Visualization (Web)</h3>
+        <p>
+          An interactive web dashboard using HTML, CSS, Chart.js, and JSON for real-time chart rendering and data analysis. Fully responsive and hosted online.
+        </p>
+        <a href="https://github.com/Sumit-Sheokand-ai/data-visualization" target="_blank">🔗 View Code</a>
+        <a href="https://sumit-sheokand-ai.github.io/data-visualization/" target="_blank">🚀 Run Demo</a>
       </div>
     </div>
 
     <h2>📫 Contact</h2>
     <p>Email: <a href="mailto:sumitsheokand347@gmail.com">sumitsheokand347@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/Sumit-Sheokand-ai">github.com/Sumit-Sheokand-ai</a></p>
+    <p>GitHub: <a href="https://github.com/Sumit-Sheokand-ai" target="_blank">github.com/Sumit-Sheokand-ai</a></p>
   </div>
 
   <footer>
