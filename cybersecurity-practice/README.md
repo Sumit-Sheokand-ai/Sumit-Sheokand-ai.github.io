@@ -23,5 +23,6 @@ A beginner-friendly Java project demonstrating **basic cybersecurity practices**
    git clone https://github.com/Sumit-Sheokand-ai/Cybersecurity-Practice.git
    cd Cybersecurity-Practice
 2. Compile and run:
+   ```bash
    javac src/CyberSecurity.java -d out
    java -cp out CyberSecurity
