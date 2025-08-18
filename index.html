@@ -5,88 +5,417 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sumit Sheokand - Portfolio</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f0f4f8;
-      color: #333;
+      overflow-x: hidden;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
     }
-
+    
+    /* Parallax Container */
+    .parallax-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Background Layers */
+    .bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 120%;
+      height: 120%;
+      z-index: -1;
+      opacity: 0.1;
+    }
+    
+    .bg-layer-1 {
+      background: radial-gradient(circle at 20% 80%, #667eea 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, #764ba2 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
+    }
+    
+    .bg-layer-2 {
+      background: radial-gradient(circle at 60% 40%, #f093fb 0%, transparent 50%),
+                  radial-gradient(circle at 40% 60%, #f5576c 0%, transparent 50%);
+      animation: float 25s ease-in-out infinite reverse;
+      opacity: 0.08;
+    }
+    
+    .bg-layer-3 {
+      background: radial-gradient(circle at 90% 10%, #4facfe 0%, transparent 50%),
+                  radial-gradient(circle at 10% 90%, #00f2fe 0%, transparent 50%);
+      animation: float 30s ease-in-out infinite;
+      opacity: 0.06;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(1deg); }
+      50% { transform: translateY(-40px) rotate(0deg); }
+      75% { transform: translateY(-20px) rotate(-1deg); }
+    }
+    
+    /* Scrolling particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #667eea;
+      border-radius: 50%;
+      animation: particleFloat 15s linear infinite;
+      opacity: 0.3;
+    }
+    
+    @keyframes particleFloat {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    /* Header Styles */
     header {
-      background-color: #3498db;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
-      padding: 40px 20px;
+      padding: 100px 20px;
       text-align: center;
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
     }
-
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { margin: 5px 0 0; font-size: 1.2em; }
-
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23667eea" stop-opacity="0.1"/><stop offset="100%" stop-color="%23667eea" stop-opacity="0"/></radialGradient></defs><circle cx="10" cy="10" r="10" fill="url(%23a)"/><circle cx="30" cy="10" r="8" fill="url(%23a)"/><circle cx="70" cy="10" r="12" fill="url(%23a)"/><circle cx="90" cy="10" r="6" fill="url(%23a)"/></svg>') repeat;
+      animation: headerPattern 20s linear infinite;
+      opacity: 0.3;
+    }
+    
+    @keyframes headerPattern {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(100px); }
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(45deg, #ffffff, #f0f4f8, #ffffff);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    header p {
+      margin: 20px 0 0;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1s ease-out 0.5s both;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 0.9;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Main Content */
+    .main-content {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    }
+    
     .container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
     }
-
-    h2 { color: #2c3e50; margin-bottom: 20px; }
-
+    
+    h2 {
+      color: #ffffff;
+      margin-bottom: 40px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-align: center;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+    
+    /* Projects Grid */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
     }
-
+    
     .project-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
     }
-
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    
+    .project-card:hover::before {
+      left: 100%;
+    }
+    
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+      border-color: rgba(102, 126, 234, 0.5);
     }
-
-    .project-card h3 { margin-top: 0; }
-    .project-card p { margin: 10px 0; }
-
+    
+    .project-card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .project-card p {
+      margin: 15px 0;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    
     .project-card a {
       text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95em;
+      font-weight: 600;
+      font-size: 0.9rem;
       display: inline-block;
-      margin-right: 15px;   
-      margin-bottom: 10px;  
-      padding: 10px 18px;   
-      border-radius: 6px;   
-      color: #fff;
-      background-color: #3498db;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 5px 10px 5px 0;
+      padding: 12px 24px;
+      border-radius: 25px;
+      color: #ffffff;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
     }
-
+    
+    .project-card a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #764ba2, #667eea);
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+    
+    .project-card a:hover::before {
+      left: 0;
+    }
+    
     .project-card a:hover {
-      background-color: #217dbb;
-      transform: translateY(-2px); 
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
     }
-
+    
+    /* Contact Section */
+    .contact-section {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 60px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .contact-section p {
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+    
+    .contact-section a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .contact-section a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      transition: width 0.3s ease;
+    }
+    
+    .contact-section a:hover::after {
+      width: 100%;
+    }
+    
+    .contact-section a:hover {
+      color: #764ba2;
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
     footer {
-      background: #2c3e50;
+      background: linear-gradient(45deg, #1a1a2e, #16213e);
       color: #fff;
       text-align: center;
-      padding: 30px 20px;
-      margin-top: 40px;
+      padding: 40px 20px;
+      margin-top: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-
-    footer a { color: #1abc9c; text-decoration: none; }
+    
+    footer a {
+      color: #667eea;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    footer a:hover {
+      color: #764ba2;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .projects {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .project-card {
+        padding: 20px;
+      }
+      
+      .container {
+        padding: 40px 15px;
+      }
+      
+      header {
+        padding: 60px 20px;
+        min-height: 60vh;
+      }
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #1a1a2e;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(45deg, #764ba2, #667eea);
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>👋 Hi, I'm Sumit Sheokand</h1>
-    <p>Programmer | Passionate about Java, Python, HTML & JavaScript</p>
+    <p>Programmer | Passionate about Java & Cybersecurity</p>
   </header>
 
   <div class="container">
@@ -103,11 +432,11 @@
 
       <!-- Cybersecurity Practice -->
       <div class="project-card">
-        <h3>🔒 Password Strength Check(java)</h3>
+        <h3>🔒 Cybersecurity Practice</h3>
         <p>
           Java project for password strength checking and SHA-256 hashing. Demonstrates secure coding and basic cybersecurity principles.
         </p>
-        <a href="https://github.com/Sumit-Sheokand-ai/Cybersecurity-Practice" target="_blank">View Project →</a>
+        <a href="cybersecurity/" target="_blank">View Project →</a>
       </div>
 
       <!-- Data Visualization -->
@@ -117,19 +446,9 @@
           An interactive web dashboard using HTML, CSS, Chart.js, and JSON for real-time chart rendering and data analysis. Fully responsive and hosted online.
         </p>
         <a href="https://github.com/Sumit-Sheokand-ai/data-visualization" target="_blank">🔗 View Code</a>
-        <a href="https://sumit-sheokand-ai.github.io/data-visualization/" target="_blank">🚀 Run Demo</a>
-      </div>
-
-      <div class="project-card">
-        <h3>🎯 Interactive Quiz Game</h3>
-        <p>
-          A beautiful, fully-featured interactive quiz game built with HTML, CSS, and JavaScript. No external dependencies required - just open and play!
-        </p>
-        <a href="https://github.com/Sumit-Sheokand-ai/Interactive-Quiz-Game" target="_blank">🔗 View Code</a>
-        <a href="https://sumit-sheokand-ai.github.io/Interactive-Quiz-Game/" target="_blank">🎮 Play Quiz</a>
+        <a href="data-visualization/index.html" target="_blank">🚀 Run Demo</a>
       </div>
     </div>
-      
 
     <h2>📫 Contact</h2>
     <p>Email: <a href="mailto:sumitsheokand347@gmail.com">sumitsheokand347@gmail.com</a></p>
