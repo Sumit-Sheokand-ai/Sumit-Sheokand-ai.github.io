@@ -18,27 +18,6 @@
 </div>
 
 
----
-
-## ◆ Design System
-
-Built around **φ = 1.618033…** (the golden ratio). Every spacing, font size, column width, and timing value is derived from this scale — not arbitrary.
-
-| Token | Value | Formula |
-|---|---|---|
-| `--sp-xs` | 0.382rem | φ⁻² |
-| `--sp-sm` | 0.618rem | φ⁻¹ |
-| `--sp-md` | 1rem | base |
-| `--sp-lg` | 1.618rem | φ¹ |
-| `--sp-xl` | 2.618rem | φ² |
-| `--sp-2xl` | 4.236rem | φ³ |
-| `--sp-3xl` | 6.854rem | φ⁴ |
-| `--sp-4xl` | 11.09rem | φ⁵ |
-
-**Grid:** Hero layout is a strict **61.8% / 38.2%** major/minor split.  
-**Cards:** Each dossier card's `height = width × φ⁻¹` — golden rectangles.  
-**Timing:** Preloader delay = 1618ms (φ × 1000).  
-**Orb rings:** Radii at φ¹, φ², φ³ — harmonically spaced.
 
 ---
 
