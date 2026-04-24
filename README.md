@@ -68,29 +68,6 @@ sumit-sheokand-ai.github.io/
 
 ---
 
-## ◆ Local Preview
-
-```bash
-# No build step needed. Just open it.
-open index.html
-
-# Or serve it locally
-npx serve .
-python -m http.server 8080
-```
-
----
-
-## ◆ Deploy
-
-This repo is directly served by **GitHub Pages** from the `main` branch root.
-
-```bash
-git add index.html
-git commit -m "update portfolio"
-git push origin main
-# → live at sumit-sheokand-ai.github.io in ~60s
-```
 
 ---
 
