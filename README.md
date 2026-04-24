@@ -17,11 +17,6 @@
 
 </div>
 
----
-
-## ◆ Overview
-
-Personal portfolio — AOT-themed, golden-ratio-designed, built with Three.js 3D effects, glassmorphism, skeleton loaders, and zero frameworks. Single self-contained `index.html`. Deployed on GitHub Pages.
 
 ---
 
